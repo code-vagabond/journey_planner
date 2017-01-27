@@ -4,12 +4,21 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 
 import App from './components/app';
+import SearchBar from './components/searchbar'
+import Categories from './components/categories'
 import reducers from './reducers';
 
 const createStoreWithMiddleware = applyMiddleware()(createStore);
 
+// ReactDOM.render(
+//   <Provider store={createStoreWithMiddleware(reducers)}>
+//     <App />
+//   </Provider>
+//   , document.querySelector('.container'));
+
 ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
-    <App />
-  </Provider>
+  <div>
+    <SearchBar />
+    <Categories />
+  </div>
   , document.querySelector('.container'));
