@@ -16,6 +16,7 @@ const createStoreWithMiddleware = applyMiddleware()(createStore);
 //   </Provider>
 //   , document.querySelector('.container'));
 
+
 ReactDOM.render(
   <div>
     <SearchBar />

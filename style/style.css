@@ -3,3 +3,7 @@
   width: 100%
 
 }
+
+.filter-menu {
+  overflow-y: scroll;
+}

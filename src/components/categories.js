@@ -1,9 +1,12 @@
 import React from 'react'
 import { Checkbox, Grid, Menu } from 'semantic-ui-react'
-import Data from './category_data_eventbrite'
+import json from 'json-loader!file.json';
 
+// import Data from './category_data_eventbrite'
+import Data from './cat_data.json';
+console.log(Data)
 const Categories = () => (
-  <Grid >
+  <Grid className ='filter-menu' >
     <Grid.Row>
         <Grid.Column width={3}>
 

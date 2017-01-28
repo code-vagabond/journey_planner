@@ -8,6 +8,12 @@ module.exports = {
     filename: 'bundle.js'
   },
   module: {
+    rules: [
+      {
+        test:/\.json$/,
+        use: 'json-loader'
+      }
+    ],
     loaders: [{
       exclude: /node_modules/,
       loader: 'babel',
