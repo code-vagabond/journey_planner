@@ -6,7 +6,7 @@ const Categories = () => (
   <Grid >
     <Grid.Row>
         <Grid.Column width={3}>
-        <Menu>
+
         <Checkbox label='Music' />
         <Checkbox label='Business & Professional' />
         <Checkbox label='Food & Drink' />
@@ -26,7 +26,7 @@ const Categories = () => (
         <Checkbox label='Home & Lifestyle' />
         <Checkbox label='Hobbies & Special Interest' />
         <Checkbox label='Other' />
-        </Menu>
+
       </Grid.Column>
     </Grid.Row>
   </Grid>
