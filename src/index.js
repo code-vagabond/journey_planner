@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { Grid, Segment } from 'semantic-ui-react';
+import Slider from 'react-rangeslider'
 
 import App from './components/app';
 import SearchBar from './components/searchbar'
@@ -35,5 +36,14 @@ ReactDOM.render(
   <div>
     <SearchBar />
     <Categories />
+    <div>
+      <Slider
+        min= {1}
+        max= {100}
+        value= {5}
+        orientation = "vertical"
+      />
+    </div>
   </div>
+
   , document.querySelector('.container'));

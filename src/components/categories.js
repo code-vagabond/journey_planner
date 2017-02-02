@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Checkbox, Grid, Menu, Segment, Form, Icon } from 'semantic-ui-react'
-// import json from 'json-loader!file.json';
+import Slider from 'react-rangeslider'
 
 import Categories_Data from './category_data_eventbrite'
 
@@ -13,10 +13,16 @@ const categoriesDataArr = Categories_Data();
 class Categories extends React.Component{
   constructor (props) {
     super(props);
-    this.state = {selectedCategories:[], catIDs:[]};
+    this.state = {selectedCategories:[], catIDs:[], rangeSlider:10};
   }
 
+  onSliderChange = (rangeSlider) => {
+    this.setState({
+      rangeSlider: rangeSlider
+    })
+  }
 
+  //change handler for category checkboxes
   onChange = (event, data) => {
     console.log(`event.target.value: ${JSON.stringify(event.target.value)}`);
     console.log(`data: ${JSON.stringify(data, null, 2)}`);
@@ -35,8 +41,6 @@ class Categories extends React.Component{
   }
 
   getCategoryID = () => {
-
-
     var catIDs = [];
     var checkedLabels = this.state.selectedCategories
 
@@ -60,6 +64,7 @@ class Categories extends React.Component{
           <Grid.Column width={4}>
             <Segment.Group>
               <Segment>
+                <h3>Select your interests</h3>
                 <Form.Field >
                   <Checkbox label='Music' onChange={this.onChange} />
                   <Checkbox label='Business & Professional' onChange={this.onChange}/>
@@ -81,6 +86,19 @@ class Categories extends React.Component{
                   <Checkbox label='Hobbies & Special Interest' onChange={this.onChange}/>
                   <Checkbox label='Other' onChange={this.onChange}/>
                 </Form.Field>
+              </Segment>
+              <Segment>
+                <h3>Within the range of:</h3>
+                <div>
+                  <Slider
+                    min= {1}
+                    max= {100}
+                    value= {this.state.rangeSlider}
+                    orientation = "vertical"
+                    onChange= {this.onSliderChange}
+                  />
+                </div>
+                <h4>{this.state.rangeSlider} km</h4>
               </Segment>
               <Segment>
                 <Button color='red' fluid onClick={this.getCategoryID} >Search    <Icon name='search'/></Button>
